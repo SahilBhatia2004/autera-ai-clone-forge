@@ -16,13 +16,11 @@ const Header = () => {
             <a href="#solutions" className="text-muted-foreground hover:text-foreground transition-colors">
               Custom Solutions
             </a>
-            <a href="#work" className="text-muted-foreground hover:text-foreground transition-colors">
-              Our Work
-            </a>
           </div>
           
           <Button 
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full px-6 shadow-glow-soft hover:shadow-glow transition-all duration-300"
+            onClick={() => window.open('https://cal.com/your-username', '_blank')}
           >
             Let's Chat
           </Button>

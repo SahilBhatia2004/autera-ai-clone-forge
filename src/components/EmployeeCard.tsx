@@ -7,9 +7,11 @@ interface EmployeeCardProps {
   avatar: string;
   color: string;
   index: number;
+  features: string[];
+  capabilities: string[];
 }
 
-const EmployeeCard = ({ name, role, avatar, color, index }: EmployeeCardProps) => {
+const EmployeeCard = ({ name, role, avatar, color, index, features, capabilities }: EmployeeCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -32,7 +34,7 @@ const EmployeeCard = ({ name, role, avatar, color, index }: EmployeeCardProps) =
       
       <div className="mb-6">
         <div 
-          className={`w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 transition-transform duration-300 ${
+          className={`w-16 h-16 rounded-full flex items-center justify-center text-4xl mb-4 transition-transform duration-300 ${
             isHovered ? 'scale-110' : ''
           }`}
           style={{ backgroundColor: color }}
@@ -44,38 +46,19 @@ const EmployeeCard = ({ name, role, avatar, color, index }: EmployeeCardProps) =
         <p className="text-muted-foreground">{role}</p>
       </div>
       
-      <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <span className="text-sm text-muted-foreground">Efficiency</span>
-          <div className="flex-1 mx-3 bg-muted rounded-full h-2">
-            <div 
-              className="bg-primary h-2 rounded-full transition-all duration-1000"
-              style={{ width: isHovered ? '95%' : '85%' }}
-            />
+      <div className="space-y-4">
+        {features.map((feature, i) => (
+          <div key={i} className="text-sm">
+            <span className="font-semibold text-foreground">{feature}</span>
           </div>
-          <span className="text-sm font-medium text-foreground">95%</span>
-        </div>
+        ))}
         
-        <div className="flex items-center justify-between">
-          <span className="text-sm text-muted-foreground">Accuracy</span>
-          <div className="flex-1 mx-3 bg-muted rounded-full h-2">
-            <div 
-              className="bg-primary h-2 rounded-full transition-all duration-1000"
-              style={{ width: isHovered ? '98%' : '88%' }}
-            />
-          </div>
-          <span className="text-sm font-medium text-foreground">98%</span>
-        </div>
-        
-        <div className="flex items-center justify-between">
-          <span className="text-sm text-muted-foreground">Speed</span>
-          <div className="flex-1 mx-3 bg-muted rounded-full h-2">
-            <div 
-              className="bg-primary h-2 rounded-full transition-all duration-1000"
-              style={{ width: isHovered ? '92%' : '82%' }}
-            />
-          </div>
-          <span className="text-sm font-medium text-foreground">92%</span>
+        <div className="space-y-2 mt-4">
+          {capabilities.map((capability, i) => (
+            <div key={i} className="text-sm text-muted-foreground">
+              • {capability}
+            </div>
+          ))}
         </div>
       </div>
       
