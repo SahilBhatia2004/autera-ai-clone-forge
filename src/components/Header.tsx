@@ -20,7 +20,7 @@ const Header = () => {
           
           <Button 
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full px-6 shadow-glow-soft hover:shadow-glow transition-all duration-300"
-            onClick={() => window.open('https://cal.com/your-username', '_blank')}
+            onClick={() => window.open('https://cal.com/sahilbhatia2004', '_blank')}
           >
             Let's Chat
           </Button>
